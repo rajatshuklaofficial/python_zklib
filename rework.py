@@ -805,7 +805,7 @@ def zkgettime(self):
 class ZKLib:
     
     def __init__(self, ip, port):
-        self.address = (ip, port)
+        self.address = (ip,port)
         self.zkclient = socket(AF_INET, SOCK_DGRAM)
         self.zkclient.settimeout(3)
         self.session_id = 0
@@ -981,9 +981,9 @@ class TestService(win32serviceutil.ServiceFramework):
         rc = None
         while rc != win32event.WAIT_OBJECT_0:
             try:
-                zk=ZKLib('10.20.0.79',4370)
+                zk=ZKLib('192.168.0.75',4370)
                 ret=zk.connect()
-                connection=client.HTTPConnection('gionee.talbrum.com')
+                connection=client.HTTPConnection('merahunar.talbrum.com')
                 attendancedata=zk.getAttendance()
                 with open('E:\\Log\\data.txt','a') as f:
                     f.write(str(attendancedata))
